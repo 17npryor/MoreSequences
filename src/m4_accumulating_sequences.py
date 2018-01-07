@@ -192,11 +192,11 @@ def make_less_simple_string(m, n):
 
     # x += 2
     # x = x + 2
-    
+
     sequence = ''
     for k in range(n-m):
         sequence = sequence + str(m+k) + '-'
-    sequence += str(n)
+    sequence = sequence + str(n)
     return (sequence)
 
 def run_test_draw_shapes():
