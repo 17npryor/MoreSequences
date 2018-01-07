@@ -190,6 +190,9 @@ def make_less_simple_string(m, n):
     #   Note that you should write its TEST function first (above).
     # -----------------------------------------------------------------
 
+    # x += 2
+    # x = x + 2
+    
     sequence = ''
     for k in range(n-m):
         sequence = sequence + str(m+k) + '-'
