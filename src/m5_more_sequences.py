@@ -161,7 +161,7 @@ def count_last_n_odds(integers, n):
     total = 0
     for k in range(n):
         if integers[len(integers)-k-1] % 2 == 1:
-            total += 1
+            total = total + 1
 
     return total
 
@@ -239,13 +239,13 @@ def index_of_first_negative(numbers):
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
-    index1 = -1
+    ind = -1
 
     for k in range(len(numbers)):
         if numbers[k] < 0:
-            index1 = k
-            return index1
-    return index1
+            ind = k
+            return ind
+    return ind
 
 def run_test_contains_an_a():
     """ Tests the   contains_an_a   function. """
@@ -317,7 +317,7 @@ def contains_an_a(s):
     for k in range(len(s)):
         if s[k] == 'a':
             return True
-
+            
     return False
 
 # ----------------------------------------------------------------------
