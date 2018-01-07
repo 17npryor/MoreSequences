@@ -186,14 +186,14 @@ def make_less_simple_string(m, n):
       :type n: int
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -----------------------------------------------------------------
 
     sequence = ''
-    for k in range(n-m+1):
-        sequence = sequence + '-' + str(m+k)
-
+    for k in range(n-m):
+        sequence = sequence + str(m+k) + '-'
+    sequence += str(n)
     return (sequence)
 
 def run_test_draw_shapes():
@@ -274,7 +274,8 @@ def draw_shapes(shapes, window):
       :type window:  rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 9. Implement and test this function. Make sure you do TO DO 8 in main first!
+    # DONE: 9. Implement and test this function. Make sure you do TO DO 8 in
+    # main first!
     #     The testing code is already written for you (that you just enabled in TO DO 8).
     #
     ####################################################################
@@ -284,11 +285,12 @@ def draw_shapes(shapes, window):
     # FWIW: The word for ideas like this is "polymorphism".
     ####################################################################
     # ------------------------------------------------------------------
-    sequence = shapes
-    #circles.attach_to(window)
-    #shapes.attach_to(window)
-    #various.attach_to(window)
-    window.render()
+    for k in range(len(shapes)):
+
+        shapes[k].attach_to(window)
+        window.render(0.3)
+
+
 
 def run_test_rectangles_from_circles():
     """ Tests the   rectangles_from_circles    function. """
@@ -389,7 +391,7 @@ def rectangles_from_circles(circles):
       :rtype: list of rg.Rectangles
     """
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # DONE: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -400,6 +402,16 @@ def rectangles_from_circles(circles):
     #            in this function, so DON'T draw anything in here!
     ####################################################################
     # ------------------------------------------------------------------
+    rects = []
+
+    for k in range(len(circles)):
+        pt1 = rg.Point(circles[k].center.x - circles[k].radius, circles[
+            k].center.y - circles[k].radius)
+        pt2 = rg.Point(circles[k].center.x + circles[k].radius, circles[
+            k].center.y + circles[k].radius)
+        rect = rg.Rectangle(pt1, pt2)
+        rects = rects + [rect]
+    return rects
 
 
 # ----------------------------------------------------------------------
